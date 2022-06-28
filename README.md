@@ -321,9 +321,9 @@ void example_vector(void)
 
     VECTOR_PUSH_BACK(v1, (point_t){1, 1}, (point_t){2, 2}, (point_t){3, 3}, (point_t){4, 4});
     bool toto = true;
-    printf("AT 3: %d\n", VECTOR_AT(v_int, 3).x);
-    VECTOR_ERASE_IF(v_int, 3, toto == true);
-    printf("AT 3: %d\n", VECTOR_AT(v_int, 3).x);
+    printf("AT 3: %d\n", VECTOR_AT(v1, 3).x);
+    VECTOR_ERASE_IF(v1, 3, toto == true);
+    printf("AT 3: %d\n", VECTOR_AT(v1, 3).x);
 }
 ```
 
@@ -342,9 +342,9 @@ void example_vector(void)
 
     VECTOR_PUSH_BACK(v1, (point_t){1, 1}, (point_t){2, 2}, (point_t){3, 3}, (point_t){4, 4});
     bool toto = true;
-    printf("AT 3: %d\n", VECTOR_AT(v_int, 3).x);
-    VECTOR_ERASE_ALL_IF(v_int, 3, toto == true, compare);
-    printf("AT 3: %d\n", VECTOR_AT(v_int, 3).x);
+    printf("AT 3: %d\n", VECTOR_AT(v1, 3).x);
+    VECTOR_ERASE_ALL_IF(v1, 3, toto == true, compare);
+    printf("AT 3: %d\n", VECTOR_AT(v1, 3).x);
 }
 ```
 
