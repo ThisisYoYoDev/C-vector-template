@@ -29,7 +29,7 @@ The type of the vector here is ```vector_point_t```
 VECTOR_INIT has optional parameters either you specify a size of your choice or the size will be that of the BUFFER (128).
 
 Example:
-```
+```c
 void example_vector(void)
 {
     VECTOR_INIT(point, v1);
