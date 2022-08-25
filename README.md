@@ -369,8 +369,8 @@ void example_vector(void)
 #### **VECTOR_DELETE_ARRAY**
 *VECTOR_DELETE_ARRAY: Delete a vector array.*
 
-#### **DELETE_VECTOR**
-*DELETE_VECTOR: Delete a vector.*
+#### **VECTOR_DELETE**
+*VECTOR_DELETE: Delete a vector.*
 
 Example:
 ```c
@@ -385,6 +385,6 @@ void example_vector(void)
 
     VECTOR_PUSH_BACK(v1, (point_t){1, 1}, (point_t){2, 2}, (point_t){3, 3}, (point_t){4, 4});
     VECTOR_SORT(v1, compare);
-    DELETE_VECTOR(v1);
+    VECTOR_DELETE(v1);
 }
 ```
