@@ -5,6 +5,11 @@ template in c for vector
 ## How to install
 Just drop the `vector.h` header file in your project.
 
+Or just download it :
+```bash
+wget https://raw.githubusercontent.com/ThisisYoYoDev/C-vector-template/main/include/vector.h
+```
+
 ### Macro definitions
 
 #### **CREATE_VECTOR**
