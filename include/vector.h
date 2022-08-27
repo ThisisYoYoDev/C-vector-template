@@ -84,10 +84,11 @@ Tested compiler version:
             MYERR("vector is NULL\n");                            \
             break;                                                \
         }                                                         \
-        if (vector->size >= vector->capacity) {                   \
+        size_t num_args = NUMARGS(vector->array[0], __VA_ARGS__); \
+        if (vector->size >= vector->capacity                      \
+        || vector->size + num_args >= vector->capacity) {         \
             VECTOR_RESERVE(vector, BUFFER);                       \
         }                                                         \
-        size_t num_args = NUMARGS(vector->array[0], __VA_ARGS__); \
         for (size_t i = 0; i < num_args / BUFFER; i++) {          \
             VECTOR_RESERVE(vector, BUFFER);                       \
         }                                                         \
@@ -105,14 +106,19 @@ Tested compiler version:
             MYERR("vector is NULL\n");                                   \
             break;                                                       \
         }                                                                \
-        if ((index > (long)vector->size && vector->size) || index < 0) { \
+        if (((long)index > (long)vector->size) || (long)index < 0) {     \
             MYERR("index out of range\n");                               \
             exit(84);                                                    \
         }                                                                \
-        if (vector->size >= vector->capacity) {                          \
-            VECTOR_RESERVE(vector, BUFFER);                              \
+        if ((long)index == (long)vector->size) {                         \
+            VECTOR_PUSH_BACK(vector, __VA_ARGS__);                       \
+            break;                                                       \
         }                                                                \
         size_t num_args = NUMARGS(vector->array[0], __VA_ARGS__);        \
+        if (vector->size >= vector->capacity                             \
+        || vector->size + num_args >= vector->capacity) {                \
+            VECTOR_RESERVE(vector, BUFFER);                              \
+        }                                                                \
         typeof(vector->array[0]) args[] = {__VA_ARGS__};                 \
         for (size_t i = 0; i < num_args / BUFFER; i++) {                 \
             VECTOR_RESERVE(vector, BUFFER);                              \
